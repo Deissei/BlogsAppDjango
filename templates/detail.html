@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}{{ blog.title }}{% endblock title %}
+{% block site %}{{ blog.title }}{% endblock site %}
+{% block content %}
+    <div class="main">
+        <article class="article">
+            <h2>{{ blog.title }}</h2>
+            <p>Автор: {{ blog.author.first_name }} {{ blog.author.last_name }}</p>
+            <p class="date">Дата публикации: {{ blog.created_at }}</p>
+            <div class="content">
+                <p>
+                    {{ blog.description }}
+                </p>
+            </div>
+            <a href="{% url "list_blogs" %}">Вернуться в список</a> <!-- Кнопка "Вернуться в список" -->
+        </article>
+    </div>
+{% endblock content %}

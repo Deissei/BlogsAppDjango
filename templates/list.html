@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+
+{% block title %}Список Блогов{% endblock title %}
+{% block site %}Список Блогов{% endblock site %}
+
+{% block content %}
+    <main>
+    {% for blog in blogs %}
+    
+        <div class="main">
+    
+            <section class="article-list">
+                <article class="article">
+                    <h2>{{ blog.title }}</h2>
+                    <p>{{ blog.description|truncatewords:20 }}</p>
+                    <a href="{% url "detail_blog" blog.id %}">Читать далее</a>
+                </article>
+            </section>
+    
+        </div>
+
+    {% endfor %}
+    </main>
+{% endblock content %}
